@@ -1,6 +1,4 @@
-arch: arm64
 os: linux
-dist: xenial
 language: python
 
 services:
