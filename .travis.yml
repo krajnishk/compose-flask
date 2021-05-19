@@ -10,3 +10,15 @@ before_install:
 script:
   - docker run krajnishk/compose_flask echo hello world
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-flask"
+  env: "Dockerflask-env"
+  bucket_name: "elasticbeanstalk-us-east-1-035439945234"
+  bucket_path: "docker-flask"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
